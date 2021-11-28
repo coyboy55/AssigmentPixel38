@@ -1,0 +1,55 @@
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+type Query {
+    users: [User!]! @all
+    shipments: [Shipment!]! @all
+    shipment(id: ID! @eq): Shipment @find
+    user(id: ID @eq): User @find
+    me: User @auth(guard: "api")
+}
+
+type User {
+    id: ID!
+    name: String!
+    username: String!
+    password: String!
+    remember_token: String!
+    shipment: [Shipment!]! @hasMany
+}
+type Shipment {
+    id: ID!
+    waybil: String!
+    user: User! @belongsTo(relation: "user")
+}
+
+type Mutation {
+    createUser(
+        name: String!
+        username: String! @rules(apply: ["username", "unique:users"])
+        password: String! @hash @rules(apply: ["min:8"])
+    ): User @create
+
+    login(username: String!, password: String!): String
+        @field(resolver: "AuthMutator@resolve")
+
+    createShipment(
+        waybil: String!
+        customer_address: String!
+        customer_name: String!
+        phone_number: String!
+    ): Shipment
+        @field(resolver: "ShipmentMutator@create")
+        @guard(checks: ["auth:api"])
+
+    deleteShipment(id: ID!): Shipment
+        @delete(resolver: "ShipmentMutator@delete")
+        @guard(checks: ["auth:api"])
+
+    updateShipment(id: ID!, waybil: String): Shipment
+        @update(resolver: "ShipmentMutator@delete")
+        @guard(checks: ["auth:api"])
+}
