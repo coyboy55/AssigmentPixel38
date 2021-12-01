@@ -9,6 +9,8 @@ type Query {
     shipments: [Shipment!]! @all
     shipment(id: ID! @eq): Shipment @find
     user(id: ID @eq): User @find
+    user(remember_token: String @eq): User @find
+
     me: User @auth(guard: "api")
 }
 
@@ -23,13 +25,19 @@ type User {
 type Shipment {
     id: ID!
     waybil: String!
+    customer_address: String!
+
+    customer_name: String!
+    phone_number: String!
+
+
     user: User! @belongsTo(relation: "user")
 }
 
 type Mutation {
     createUser(
         name: String!
-        username: String! @rules(apply: ["username", "unique:users"])
+        username: String! 
         password: String! @hash @rules(apply: ["min:8"])
     ): User @create
 
@@ -49,7 +57,7 @@ type Mutation {
         @delete(resolver: "ShipmentMutator@delete")
         @guard(checks: ["auth:api"])
 
-    updateShipment(id: ID!, waybil: String): Shipment
+    updateShipment(id: ID!, waybil: String,customer_name: String,customer_address: String,phone_number: String): Shipment
         @update(resolver: "ShipmentMutator@delete")
         @guard(checks: ["auth:api"])
 }

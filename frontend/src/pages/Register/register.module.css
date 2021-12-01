@@ -1,0 +1,151 @@
+.headerFA {
+  height: 125px;
+  background-color: #a24646;
+}
+.logoFA {
+  margin-top: 20px;
+}
+.backgroudFA {
+  height: 530px;
+ background-color: #fccccc;
+}
+.formloginFA {
+  display: block;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 320px;
+  width: 250px;
+  border: 1px solid #f66d6d;
+  border-radius: 10px;
+}
+
+.btnFA {
+  margin-left: 36%;
+
+  color: #fffafa !important;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 0px solid #a33838;
+  background: #a24646;
+}
+.btnFA:hover {
+  color: #fffafa !important;
+  background: #f66d6d;
+}
+.inputFA:focus {
+  outline: 0;
+}
+
+.inputFA {
+  margin-left: 12.5%;
+  /* margin-right: auto; */
+
+  margin-bottom: 10%;
+  border: 1px solid #f66d6d;
+  border-radius: 3px;
+  padding: 8px;
+}
+.inputFA::placeholder {
+  padding: 5px;
+  color: #d1cece;
+  font-style: italic;
+}
+/* .AddTable{
+margin-top: 1%;
+
+} */
+.transition {
+  background-color: #cceefc;
+  height: 600px;
+}
+.ListFA {
+  color: #a24646;
+  margin: 8px;
+  border: 1px solid #a33838;
+  width: 20%;
+  height: 15%;
+  border-radius: 10px;
+  background-color: #f66d6d;
+  /* //  box-shadow: 10px 5px 10px #3866A3; */
+}
+.inputFATable {
+  padding: 1%;
+  border: 1px solid #f66d6d;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+.inputFATable:focus {
+  outline: 0;
+}
+.inputFATable::placeholder {
+  padding: 5px;
+  color: #d1cece;
+  font-style: italic;
+}
+.btnFATable {
+  color: #fffafa !important;
+  border-radius: 5px;
+  border: 0px solid #a33838;
+  background: #a24646;
+}
+.btnFATable:hover {
+  color: #fffafa !important;
+  background: #f66d6d;
+}
+.centerList {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.selectFA {
+  padding: 1%;
+  border: 1px solid #6dcff6;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+
+.selectFA:focus {
+  outline: 0;
+}
+
+.selectFA::after {
+  content: "";
+  width: 8em;
+  height: 0.5em;
+  background-color: var(--select-arrow);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+.ListDailyFA {
+  display: flex;
+}
+/* .centerDailyList{
+  display: flex;
+} */
+.dailyFlexFa {
+  display: flex;
+}
+.h3DailyTX {
+  padding: 1%;
+  color: white;
+  display: inline-block;
+  width: 90%;
+  margin-left: 5%;
+  border: 1px solid white;
+  border-top: #a24646;
+  border-left: #a24646;
+
+  border-right: #a24646;
+}
+/* .bodyDailyTxFA{
+  height: 30rem;
+  width: 100%;
+  background-image:url('./images/Screenshot\ from\ 2021-08-15\ 12-41-48.png') ;
+  background-repeat: no-repeat;
+} */

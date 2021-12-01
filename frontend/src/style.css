@@ -1,0 +1,28 @@
+.patientprofile {
+    flex: 5;
+    background-color: #fccccc;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.header {
+    height: 125px;
+    background-color: #a24646;
+    display: flex;
+    align-items: center;
+}
+
+.header h2 {
+    color: #FFF;
+    margin-left: 32px;
+}
+
+.medicalfile {
+    flex: 5;
+    background-color: #fccccc;
+}
+
+.appointment {
+    flex: 5;
+    background-color: #fccccc;
+}
